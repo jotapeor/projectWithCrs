@@ -20,7 +20,11 @@ public class FuncionarioService {
     @Autowired
     private FuncionarioDAO repository;
 
-    public List<FuncionarioBean> lertodos() {
-        return repository.lertodos();
+    public List<FuncionarioBean> lerTodos() {
+        return repository.lerTodos();
+    }
+
+    public FuncionarioBean lerPorId(int id) {
+        return repository.lerPorId(id);
     }
 }
