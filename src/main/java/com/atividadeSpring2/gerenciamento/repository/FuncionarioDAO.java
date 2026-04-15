@@ -20,7 +20,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class FuncionarioDAO {
 
-    public List<FuncionarioBean> lertodos() {
+    public List<FuncionarioBean> lerTodos() {
         List<FuncionarioBean> dados = new ArrayList();
         try {
             Connection conn = Conexao.conectar();
@@ -45,5 +45,30 @@ public class FuncionarioDAO {
             e.printStackTrace();
         }
         return dados;
+    }
+
+    public FuncionarioBean lerPorId(int id) {
+        FuncionarioBean funcionario = new FuncionarioBean();
+        try {
+            Connection conn = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conn.prepareStatement("select * from funcionario where id = ?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                funcionario.setId(rs.getInt("id"));
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setCargo(rs.getString("cargo"));
+                funcionario.setDepartamento(rs.getString("departamento"));
+                funcionario.setEmail(rs.getString("email"));
+                funcionario.setData_contratacao(rs.getDate("data_contratacao"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return funcionario;
     }
 }
