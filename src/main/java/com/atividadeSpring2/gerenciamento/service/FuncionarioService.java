@@ -27,4 +27,8 @@ public class FuncionarioService {
     public FuncionarioBean lerPorId(int id) {
         return repository.lerPorId(id);
     }
+
+    public void editarFunc(FuncionarioBean funcionario) {
+        repository.editarFunc(funcionario);
+    }
 }
