@@ -44,4 +44,17 @@ public class FuncionarioController {
         service.editarFunc(funcionario);
         return "redirect:/funcionarios";
     }
+
+    @PostMapping("/cadastrar")
+    public String addNewFunc(@ModelAttribute FuncionarioBean newFunc) {
+        service.addFunc(newFunc);
+        return "redirect:/funcionarios";
+    }
+
+    @GetMapping("/cadastrar-novo")
+    public String cadastrarNovo(Model model) {
+        FuncionarioBean newFunc = new FuncionarioBean();
+        model.addAttribute("newFunc", newFunc);
+        return "cadastrar-novo";
+    }
 }
