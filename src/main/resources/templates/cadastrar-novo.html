@@ -5,7 +5,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Perfil</title>
+        <title>Cadastrar novo funcionário</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -16,9 +16,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </nav>
         </header>
         <main>
-            <h2>Editar Dados</h2>
-            <form th:action="@{/salvar}" th:object="${funcionario}" method="post">
-                <input type="hidden" th:field="*{id}"/>
+            <h2>Cadastrar funcionário</h2>
+            <form th:action="@{/cadastrar}" th:object="${newFunc}" method="post">
                 <label>Nome: </label>
                 <input type="text" th:field="*{nome}"/> <br> <br>
                 <label>Cargo: </label>
@@ -29,7 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <input type="email" th:field="*{email}"/> <br> <br>
                 <label>Data de contratação: </label>
                 <input type="date" th:field="*{data_contratacao}"/> <br> <br>
-                <button type="submit">Salvar</button>
+                <button type="submit">Cadastrar</button>
             </form>
         </main>
     </body>

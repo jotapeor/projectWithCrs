@@ -31,4 +31,8 @@ public class FuncionarioService {
     public void editarFunc(FuncionarioBean funcionario) {
         repository.editarFunc(funcionario);
     }
+
+    public void addFunc(FuncionarioBean newFunc) {
+        repository.addFunc(newFunc);
+    }
 }

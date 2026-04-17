@@ -92,4 +92,24 @@ public class FuncionarioDAO {
             e.printStackTrace();
         }
     }
+
+    public void addFunc(FuncionarioBean newFunc) {
+        try {
+            Connection conn = Conexao.conectar();
+            PreparedStatement stmt = null;
+
+            stmt = conn.prepareStatement("insert into funcionario (id, nome, cargo, departamento, email, data_contratacao) values (?, ?, ?, ?, ?, ?)");
+
+            stmt.setInt(1, newFunc.getId());
+            stmt.setString(2, newFunc.getNome());
+            stmt.setString(3, newFunc.getCargo());
+            stmt.setString(4, newFunc.getDepartamento());
+            stmt.setString(5, newFunc.getEmail());
+            stmt.setDate(6, newFunc.getData_contratacao());
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
